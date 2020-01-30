@@ -61,7 +61,8 @@ interface IState {
     /**Boolean indicating if time zones are loading in dropdown */
     timeZonesLoading: boolean,
     resourceStrings: any,
-    resourceStringsLoaded: boolean
+    resourceStringsLoaded: boolean,
+    isRoomDeleted: boolean
 };
 
 /** Component for managing user favorites. */
@@ -106,7 +107,8 @@ class AddFavorites extends React.Component<IAddFavoriteProps, IState>
             selectedTimeZone: null,
             timeZonesLoading: false,
             resourceStrings: {},
-            resourceStringsLoaded: false
+            resourceStringsLoaded: false,
+            isRoomDeleted:false
         };
 
         let search = window.location.search;
@@ -500,7 +502,7 @@ class AddFavorites extends React.Component<IAddFavoriteProps, IState>
         favoritesList.splice(index, 1);
         this.appInsights.trackEvent({ name: `Removed from favorite` }, { User: this.userObjectId, Room: room.RoomEmail });
         this.appInsights.trackTrace({ message: "User " + this.userObjectId + " removed room " + room.RoomName + " from favorites in client app" });
-        this.setState({ favoriteRooms: favoritesList, showMessage: false });
+        this.setState({ favoriteRooms: favoritesList, showMessage: false, isRoomDeleted: true });
     }
 
     /** 
@@ -692,7 +694,7 @@ class AddFavorites extends React.Component<IAddFavoriteProps, IState>
                                         <Flex.Item grow>
                                             {self.renderMessage()}
                                         </Flex.Item>
-                                        <Button loading={self.state.loading} disabled={self.state.selectedTimeZone === null || self.state.loading === true || self.state.favoriteRooms === null || self.state.favoriteRooms.length === 0} primary onClick={() => self.submit()} content={self.state.resourceStrings.DoneButton} />
+                                        <Button loading={self.state.loading} disabled={self.state.selectedTimeZone === null || self.state.loading === true || self.state.favoriteRooms === null || (self.state.favoriteRooms.length === 0 && self.state.isRoomDeleted === false)} primary onClick={() => self.submit()} content={self.state.resourceStrings.DoneButton} />
                                     </Flex>
                                 </div>
                             </div>
