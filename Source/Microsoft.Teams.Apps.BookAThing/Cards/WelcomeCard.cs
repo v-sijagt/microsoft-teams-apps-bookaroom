@@ -1,4 +1,4 @@
-﻿// <copyright file="WelcomeCard.cs" company="Microsoft Corporation">
+// <copyright file="WelcomeCard.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 
@@ -100,9 +100,15 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
                     {
                         Title = Strings.ManageFavorites,
                         Data = new AdaptiveSubmitActionData
-                        {
-                            Msteams = new TaskModuleAction(Strings.ManageFavorites, new { data = JsonConvert.SerializeObject(new AdaptiveTaskModuleCardAction { Text = BotCommands.ShowFavoriteTaskModule }) }),
-                        },
+                         {
+                            Msteams = new CardAction
+                            {
+                                Type = ActionTypes.MessageBack,
+                                Text = BotCommands.ManageFavorites,
+                                DisplayText = string.Empty,
+                                Value = null,
+                            },
+                         },
                     },
                 },
             };
