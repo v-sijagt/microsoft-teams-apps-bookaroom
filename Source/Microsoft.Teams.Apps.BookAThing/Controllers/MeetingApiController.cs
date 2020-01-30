@@ -1,4 +1,4 @@
-﻿// <copyright file="MeetingApiController.cs" company="Microsoft Corporation">
+// <copyright file="MeetingApiController.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 
@@ -111,6 +111,12 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
                 var claims = this.GetUserClaims();
                 this.telemetryClient.TrackTrace($"User {claims.UserObjectIdentifer} submitted request to get supported time zones.");
                 var token = await this.tokenHelper.GetUserTokenAsync(claims.FromId).ConfigureAwait(false);
+                if (string.IsNullOrEmpty(token))
+                {
+                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not get supported time zones.");
+                    return this.Unauthorized();
+                }
+
                 var supportedTimeZone = await this.userConfigurationProvider.GetSupportedTimeZoneAsync(token).ConfigureAwait(false);
 
                 if (supportedTimeZone.ErrorResponse != null)
