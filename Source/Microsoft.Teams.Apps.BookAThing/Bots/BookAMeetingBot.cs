@@ -1,4 +1,4 @@
-﻿// <copyright file="BookAMeetingBot.cs" company="Microsoft Corporation">
+// <copyright file="BookAMeetingBot.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 
@@ -242,6 +242,15 @@ namespace Microsoft.Teams.Apps.BookAThing.Bots
             if (taskModuleRequest.Data == null)
             {
                 this.telemetryClient.TrackTrace("Request data obtained on task module fetch action is null.");
+                await turnContext.SendActivityAsync(Strings.ExceptionResponse).ConfigureAwait(false);
+                return default;
+            }
+
+            var userToken = await this.tokenHelper.GetUserTokenAsync(activity.From.Id);
+            if (string.IsNullOrEmpty(userToken))
+            {
+                // No token found for user. Trying to open task module after sign out.
+                this.telemetryClient.TrackTrace("User token is null in OnTeamsTaskModuleFetchAsync.");
                 await turnContext.SendActivityAsync(Strings.ExceptionResponse).ConfigureAwait(false);
                 return default;
             }
