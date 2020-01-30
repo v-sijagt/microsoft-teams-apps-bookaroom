@@ -192,7 +192,7 @@ class OtherRoom extends React.Component<IOtherRoomProps, IState>
         }
         else {
             this.appInsights.trackTrace({ message: `'GetResourceStringsAsync' - Request failed:${resourceStrings.status}`, severityLevel: SeverityLevel.Warning });
-            this.setMessage("Something went wrong and I can’t do that right now. Try again in a few minutes.", Constants.ErrorMessageRedColor, false);
+            this.setMessage("Something went wrong and I canâ€™t do that right now. Try again in a few minutes.", Constants.ErrorMessageRedColor, false);
         }
     }
 
@@ -369,7 +369,6 @@ class OtherRoom extends React.Component<IOtherRoomProps, IState>
                 return response;
             }
             else {
-                this.setMessage(this.state.resourceStrings.ExceptionResponse, Constants.ErrorMessageRedColor, false);
                 this.appInsights.trackTrace({ message: `'SearchRoomAsync' - Request failed:${res.status}`, severityLevel: SeverityLevel.Warning });
             }
         }
