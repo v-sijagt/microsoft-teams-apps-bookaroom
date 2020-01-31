@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -167,7 +167,7 @@
   </data>
   <data name="FavoriteRoomsModified" xml:space="preserve">
     <value>Modified favorite rooms list. Please refresh.</value>
-    <comment>Message to be displayed if favorite list card can not update</comment>
+    <comment>Message to be displayed if favorite list card cannot update</comment>
   </data>
   <data name="LoggedInSuccess" xml:space="preserve">
     <value>You are logged in successfully!</value>
@@ -344,5 +344,12 @@
   <data name="NoFavoritesDescriptionTaskModule" xml:space="preserve">
     <value>Add a room to your list of favorites to get started.</value>
     <comment>Message to display if there are no favorite rooms found for user in task module</comment>
+  </data>
+  <data name="PleaseSignIn" xml:space="preserve">
+    <value>You are not signed in to perform this action. Please type sign in to proceed.</value>
+  </data>
+  <data name="SupportedCommands" xml:space="preserve">
+    <value>I can only support below commands.</value>
+    <comment>Text to be displayed in help card</comment>
   </data>
 </root>
