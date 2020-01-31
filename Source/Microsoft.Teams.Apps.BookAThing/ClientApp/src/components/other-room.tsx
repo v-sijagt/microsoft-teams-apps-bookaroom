@@ -369,6 +369,7 @@ class OtherRoom extends React.Component<IOtherRoomProps, IState>
                 return response;
             }
             else {
+                this.setMessage(this.state.resourceStrings.ExceptionResponse, Constants.ErrorMessageRedColor, false);
                 this.appInsights.trackTrace({ message: `'SearchRoomAsync' - Request failed:${res.status}`, severityLevel: SeverityLevel.Warning });
             }
         }
