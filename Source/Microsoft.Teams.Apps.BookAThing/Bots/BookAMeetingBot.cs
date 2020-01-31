@@ -251,7 +251,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Bots
             {
                 // No token found for user. Trying to open task module after sign out.
                 this.telemetryClient.TrackTrace("User token is null in OnTeamsTaskModuleFetchAsync.");
-                await turnContext.SendActivityAsync(Strings.ExceptionResponse).ConfigureAwait(false);
+                await turnContext.SendActivityAsync(Strings.PleaseSignIn).ConfigureAwait(false);
                 return default;
             }
 
