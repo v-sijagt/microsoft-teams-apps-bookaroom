@@ -113,7 +113,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
                 var token = await this.tokenHelper.GetUserTokenAsync(claims.FromId).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(token))
                 {
-                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not get supported time zones.");
+                    this.telemetryClient.TrackTrace($"Azure Active Directory access token for user {claims.UserObjectIdentifer} is empty. Cannot get supported time zones.");
                     return this.Unauthorized();
                 }
 
@@ -197,7 +197,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
                 var token = await this.tokenHelper.GetUserTokenAsync(claims.FromId).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(token))
                 {
-                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not fetch favorite rooms.");
+                    this.telemetryClient.TrackTrace($"Azure Active Directory access token for user {claims.UserObjectIdentifer} is empty. Cannot fetch favorite rooms.");
                     return this.Unauthorized();
                 }
 
@@ -226,7 +226,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
                 var token = await this.tokenHelper.GetUserTokenAsync(claims.FromId).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(token))
                 {
-                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not search rooms.");
+                    this.telemetryClient.TrackTrace($"Azure Active Directory access token for user {claims.UserObjectIdentifer} is empty. Cannot search rooms.");
                     return this.Unauthorized();
                 }
 
@@ -292,7 +292,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
                 var token = await this.tokenHelper.GetUserTokenAsync(claims.FromId).ConfigureAwait(false);
                 if (string.IsNullOrEmpty(token))
                 {
-                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not get rooms.");
+                    this.telemetryClient.TrackTrace($"Azure Active Directory access token for user {claims.UserObjectIdentifer} is empty. Cannot get rooms.");
                     return this.Unauthorized();
                 }
 
@@ -411,7 +411,7 @@ namespace Microsoft.Teams.Apps.BookAThing.Controllers
 
                 if (string.IsNullOrEmpty(token))
                 {
-                    this.telemetryClient.TrackTrace($"Token for user {claims.UserObjectIdentifer} is empty. Can not create meeting.");
+                    this.telemetryClient.TrackTrace($"Azure Active Directory access token for user {claims.UserObjectIdentifer} is empty. Cannot create meeting.");
                     return this.Unauthorized();
                 }
 
