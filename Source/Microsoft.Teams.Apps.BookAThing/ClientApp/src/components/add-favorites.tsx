@@ -575,6 +575,7 @@ class AddFavorites extends React.Component<IAddFavoriteProps, IState>
                 return response;
             }
             else {
+                this.setMessage(this.state.resourceStrings.ExceptionResponse, Constants.ErrorMessageRedColor, false);
                 this.appInsights.trackTrace({ message: `'SearchRoomAsync' - Request failed:${searchedRooms.status}`, severityLevel: SeverityLevel.Warning });
             }
         }
