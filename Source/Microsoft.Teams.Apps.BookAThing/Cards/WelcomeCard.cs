@@ -8,10 +8,8 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
     using System.Collections.Generic;
     using AdaptiveCards;
     using Microsoft.Bot.Schema;
-    using Microsoft.Bot.Schema.Teams;
     using Microsoft.Teams.Apps.BookAThing.Models;
     using Microsoft.Teams.Apps.BookAThing.Resources;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// Class having method to return welcome card attachment.
@@ -91,8 +89,6 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
                             {
                                 Type = ActionTypes.MessageBack,
                                 Text = BotCommands.BookAMeeting,
-                                DisplayText = string.Empty,
-                                Value = null,
                             },
                          },
                     },
@@ -105,8 +101,6 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
                             {
                                 Type = ActionTypes.MessageBack,
                                 Text = BotCommands.ManageFavorites,
-                                DisplayText = string.Empty,
-                                Value = null,
                             },
                          },
                     },
