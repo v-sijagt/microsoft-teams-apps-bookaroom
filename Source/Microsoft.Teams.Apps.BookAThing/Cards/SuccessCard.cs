@@ -1,4 +1,4 @@
-﻿// <copyright file="SuccessCard.cs" company="Microsoft Corporation">
+// <copyright file="SuccessCard.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 
@@ -40,7 +40,6 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
                     {
                         Type = ActionTypes.MessageBack,
                         Text = BotCommands.CancelMeeting,
-                        DisplayText = string.Empty,
                         Value = JsonConvert.SerializeObject(new MeetingViewModel
                         {
                             MeetingId = meeting.MeetingId,
@@ -102,7 +101,6 @@ namespace Microsoft.Teams.Apps.BookAThing.Cards
                                 {
                                     Type = ActionTypes.MessageBack,
                                     Text = BotCommands.AddFavorite,
-                                    DisplayText = string.Empty,
                                     Value = JsonConvert.SerializeObject(new MeetingViewModel
                                     {
                                         RoomEmail = meeting.RoomEmail,
